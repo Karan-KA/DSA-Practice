@@ -1,6 +1,6 @@
 # Problem: Valid Anagram
-# Time complexity: 
-# Space Complexity: 
+# Time complexity: O(n)
+# Space Complexity: O(n)
 # Pattern: Hash Map
 
 class Solution:
@@ -13,6 +13,7 @@ class Solution:
         
         for char in s:
             map_s[char] = map_s.get(char, 0) + 1
+        for char in t:
             map_t[char] = map_t.get(char, 0) + 1
 
         if map_s == map_t:
