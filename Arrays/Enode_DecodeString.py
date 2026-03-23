@@ -1,34 +1,30 @@
 # problem : Enocde - Decode a string
-# Time Complexity: 
-# Space Complexity: 
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 
 class Solution:
     def encoding(self, strs):
-        pass
-    def decoding(self, str):
-        pass
+        encodedstr = ""
+        for word in strs:
+            encodedstr += str(len(word))+'#'+word
+
+        return encodedstr
+    def decoding(self, s):
+        ans, i = [], 0
+
+        while i < len(s):
+            j = i
+            while s[j] != '#':
+                j+=1
+            length = int(s[i:j])
+
+            ans.append(s[j+1:j+1+length])
+
+            i = j+1+length
+        
+        return ans
 
 
 
 
-nums = [1,2,3,4,5]
-n = len(nums)
-prefix = [1] * n
-suffix = [1] * n
-
-for i in range(n):
-    if i == 0:
-        prefix[i] = nums[i]
-    else:
-        prefix[i] = prefix[i-1] * nums[i]
-
-
-for i in range(n-1, -1, -1):
-    if i == n-1:
-        suffix[i] = nums[i]
-    else:
-        suffix[i] = suffix[i+1] * nums[i]
-
-print(prefix)
-print(suffix)
 
